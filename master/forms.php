@@ -8,8 +8,9 @@
 <html lang="en">
 <!--<![endif]-->
 
-<!-- Mirrored from seantheme.com/color-admin-v3.0/admin/apple/form_wizards.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Sep 2017 12:32:40 GMT -->
+<!-- Mirrored from seantheme.com/color-admin-v3.0/admin/apple/form_wizards_validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Sep 2017 12:32:41 GMT -->
 <head>
+	
 	<?php	include_once "headlinks.php" ?>
 	<style>
         .first{
@@ -66,14 +67,9 @@
 	
 	<!-- begin #page-container -->
 	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
-
-		<!-- begin #header -->
-		<?php	include_once "header.php" ?>
-		<!-- end #header -->
+	<?php	include_once "header.php" ?>
 		
-		<!-- begin #sidebar -->
 		<?php	include_once "sidebar.php" ?>
-		<!-- end #sidebar -->
 		
 		<!-- begin #content -->
 		<div id="content" class="content">
@@ -85,7 +81,7 @@
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Wizards <small>header small text goes here...</small></h1>
+			<h1 class="page-header">Wizards + Validation <small>header small text goes here...</small></h1>
 			<!-- end page-header -->
 			
 			<!-- begin row -->
@@ -95,13 +91,18 @@
 			        <!-- begin panel -->
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
-                           
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
                             <h4 class="panel-title">Form Wizards</h4>
                         </div>
                         <div class="panel-body">
-                            <form action="http://seantheme.com/" method="POST">
+                            <form action="" method="POST" name="form-wizard">
 								<div id="wizard">
-								<ol>
+									<ol>
 										<li class="col-sm-3">
 										    Identification 
 										</li>
@@ -116,34 +117,47 @@
 										</li>
 									</ol>
 									<!-- begin wizard step-1 -->
-									<div>
+									<div class="wizard-step-1">
                                         <fieldset>
                                             <legend class="pull-left width-full">Identification</legend>
                                             <!-- begin row -->
-                                            <div class="row">
+                                            <div class="row" style="margin: 0 70px;">
                                                 <!-- begin col-4 -->
-                                                <div class="col-md-4">
-													<div class="form-group">
+                                                <div class="col-md-6">
+													<div class="form-group block1">
 														<label>First Name</label>
-														<input type="text" name="firstname" placeholder="John" class="form-control" />
+														<input type="text" name="firstname" placeholder="First Name" class="form-control" value="<?php    echo $_SESSION['firstname'] ?>" disabled>
 													</div>
                                                 </div>
                                                 <!-- end col-4 -->
                                                 <!-- begin col-4 -->
-                                                <div class="col-md-4">
-													<div class="form-group">
-														<label>Middle Initial</label>
-														<input type="text" name="middle" placeholder="A" class="form-control" />
-													</div>
-                                                </div>
                                                 <!-- end col-4 -->
                                                 <!-- begin col-4 -->
-                                                <div class="col-md-4">
-													<div class="form-group">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
 														<label>Last Name</label>
-														<input type="text" name="lastname" placeholder="Smith" class="form-control" />
+														<input type="text" name="lastname" placeholder="Last Name" class="form-control" data-parsley-group="wizard-step-1" value="<?php    echo $_SESSION['lastname'] ?>" disabled>
 													</div>
                                                 </div>
+                                                
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="text" name="email" placeholder="email" class="form-control" data-parsley-group="wizard-step-1" value="<?php    echo $_SESSION['email'] ?>" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Gender</label>
+                                                    <select class="form-control form-control-lg" aria-label=".form-select-lg example">
+                                                        <option selected>Select your gender</option>
+                                                        <option value="m">Male</option>
+                                                        <option value="f">Female</option>
+                                                        <option value="i">I don't know</option>
+                                                    </select>
+                                                </div>
+                                                <!-- <div class="col-md-6">
+                                                <input type="text" name="phone" placeholder="Phone number" class="form-control" data-parsley-group="">
+                                                </div> -->
                                                 <!-- end col-4 -->
                                             </div>
                                             <!-- end row -->
@@ -151,7 +165,7 @@
 									</div>
 									<!-- end wizard step-1 -->
 									<!-- begin wizard step-2 -->
-									<div>
+									<div class="wizard-step-2">
 										<fieldset>
 											<legend class="pull-left width-full">Contact Information</legend>
                                             <!-- begin row -->
@@ -160,7 +174,7 @@
                                                 <div class="col-md-6">
 													<div class="form-group">
 														<label>Phone Number</label>
-														<input type="text" name="phone" placeholder="123-456-7890" class="form-control" />
+														<input type="text" name="phone" placeholder="1234567890" class="form-control" data-parsley-group="wizard-step-2" data-parsley-type="number"/>
 													</div>
                                                 </div>
                                                 <!-- end col-6 -->
@@ -168,7 +182,7 @@
                                                 <div class="col-md-6">
 													<div class="form-group">
 														<label>Email Address</label>
-														<input type="text" name="email" placeholder="someone@example.com" class="form-control" />
+														<input type="email" name="email" placeholder="someone@example.com" class="form-control" data-parsley-group="wizard-step-2" data-parsley-type="email"/>
 													</div>
                                                 </div>
                                                 <!-- end col-6 -->
@@ -178,27 +192,20 @@
 									</div>
 									<!-- end wizard step-2 -->
 									<!-- begin wizard step-3 -->
-									<div>
+									<div class="wizard-step-3">
 										<fieldset>
 											<legend class="pull-left width-full">Login</legend>
                                             <!-- begin row -->
                                             <div class="row">
                                                 <!-- begin col-4 -->
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Username</label>
-                                                        <div class="controls">
-                                                            <input type="text" name="username" placeholder="johnsmithy" class="form-control" />
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                                 <!-- end col-4 -->
                                                 <!-- begin col-4 -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Pasword</label>
                                                         <div class="controls">
-                                                            <input type="password" name="password" placeholder="Your password" class="form-control" />
+                                                            <input type="password" name="password" placeholder="Your password" class="form-control" data-parsley-group="wizard-step-3"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -213,6 +220,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- end col-6 -->
+                                                
                                             </div>
                                             <!-- end row -->
                                         </fieldset>
@@ -246,75 +254,7 @@
 		</div>
 		<!-- end #content -->
 		
-		
-		
-        <!-- begin theme-panel -->
-        <div class="theme-panel">
-            <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="ion-ios-cog"></i></a>
-            <div class="theme-panel-content">
-                <h5 class="m-t-0">Color Theme</h5>
-                <ul class="theme-list clearfix">
-                    <li class="active"><a href="javascript:;" class="bg-blue" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-green" data-theme="green" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Green">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-black" data-theme="black" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Black">&nbsp;</a></li>
-                </ul>
-                <div class="divider"></div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Header Styling</div>
-                    <div class="col-md-7">
-                        <select name="header-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">inverse</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label">Header</div>
-                    <div class="col-md-7">
-                        <select name="header-fixed" class="form-control input-sm">
-                            <option value="1">fixed</option>
-                            <option value="2">default</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Sidebar Styling</div>
-                    <div class="col-md-7">
-                        <select name="sidebar-styling" class="form-control input-sm">
-                            <option value="1">default</option>
-                            <option value="2">grid</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label">Sidebar</div>
-                    <div class="col-md-7">
-                        <select name="sidebar-fixed" class="form-control input-sm">
-                            <option value="1">fixed</option>
-                            <option value="2">default</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-5 control-label double-line">Sidebar Gradient</div>
-                    <div class="col-md-7">
-                        <select name="content-gradient" class="form-control input-sm">
-                            <option value="1">disabled</option>
-                            <option value="2">enabled</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row m-t-10">
-                    <div class="col-md-12">
-                        <a href="#" class="btn btn-inverse btn-block btn-sm" data-click="reset-local-storage"><i class="ion-refresh m-r-3"></i> Reset Local Storage</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end theme-panel -->
+          
 		
 		<!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-primary btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
@@ -337,13 +277,27 @@
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="assets/plugins/parsley/dist/parsley.js"></script>
 	<script src="assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
-	<script src="assets/js/form-wizards.demo.min.js"></script>
+	<script src="assets/js/form-wizards-validation.demo.min.js"></script>
 	<script src="assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-	
+
+	<!-- ================== BEGIN TELEPHONE JS ================== -->
+         <script src="build/js/intlTelInput.js"></script>
+    <!-- ================== END TELEPHONE JS ================== -->
 	<script>
-		 function triggerClick() {
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+
+      utilsScript: "build/js/utils.js",
+    });
+		$(document).ready(function() {
+			App.init();
+			FormWizardValidation.init();
+		});
+
+        function triggerClick() {
         document.querySelector('#profileImage').click();
     }
     function displayImage(e) {
@@ -356,10 +310,6 @@
             reader.readAsDataURL(e.files[0]);
         }
     }
-		$(document).ready(function() {
-			App.init();
-			FormWizard.init();
-		});
 	</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -373,5 +323,5 @@
 </script>
 </body>
 
-<!-- Mirrored from seantheme.com/color-admin-v3.0/admin/apple/form_wizards.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Sep 2017 12:32:41 GMT -->
+<!-- Mirrored from seantheme.com/color-admin-v3.0/admin/apple/form_wizards_validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Sep 2017 12:32:42 GMT -->
 </html>

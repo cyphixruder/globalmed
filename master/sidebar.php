@@ -1,4 +1,5 @@
 <!-- begin #sidebar -->
+
 <div id="sidebar" class="sidebar">
 			<!-- begin sidebar scrollbar -->
 			<div data-scrollbar="true" data-height="100%">
@@ -6,10 +7,10 @@
 				<ul class="nav">
 					<li class="nav-profile">
 						<div class="image">
-							<a href="javascript:;"><img src="assets/img/user-13.jpg" alt="" /></a>
+							<a href="javascript:;"><img src="assets/img/profile.jpg" alt="" /></a>
 						</div>
 						<div class="info">
-							Sean Ngu
+							<?php echo $_SESSION['email']; ?>
 							<small>Front end developer</small>
 						</div>
 					</li>
@@ -19,21 +20,11 @@
 				<ul class="nav">
 					<li class="nav-header">Navigation</li>
                     <li><a href="index.php"><i class="ion-ios-pulse-strong"></i> <span>Dashboard</span></a></li>
-                    <li><a href="form.php"><i class="ion-android-person-strong"></i> <span>Profile</span></a></li>
-					<li class="has-sub">
-						<a href="javascript:;">
-							<span class="badge pull-right">10</span>
-							<i class="ion-ios-email bg-blue"></i> 
-							<span>Email</span>
-						</a>
-						<ul class="sub-menu">
-						    <li><a href="email_inbox.html">Inbox v1</a></li>
-						    <li><a href="email_inbox_v2.html">Inbox v2</a></li>
-						    <li><a href="email_compose.html">Compose</a></li>
-						    <li><a href="email_detail.html">Detail</a></li>
-						</ul>
-					</li>
-					<li>
+                    <li><a href="form.php"><i class="ion-ios-albums-outline"></i> <span>Profile</span></a></li>
+					<li><a href="email_inbox.php"><i class="ion-ios-email bg-blue"></i> <span>Mail</span><span class="badge pull-right">10</span></a></li>
+					<li><a href="form.php"><i class="ion-android-chat fa-2x text-inverse"></i> <span>Chat</span></a></li>
+					<li><a href="form_multiple.php"><i class="ion-ios-calendar-outline bg-pink"></i><span>Appointment</span></a></li>
+					<!-- <li>
 						<a href="bootstrap_4.html">
 							<div class="icon-img">
 						    	<img src="assets/img/bs4-logo.png" alt="" />
@@ -281,7 +272,7 @@
 							<li><a href="javascript:;">Menu 1.2</a></li>
 							<li><a href="javascript:;">Menu 1.3</a></li>
 						</ul>
-					</li>
+					</li> -->
 			        <!-- begin sidebar minify button -->
 					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="ion-ios-arrow-left"></i> <span>Collapse</span></a></li>
 			        <!-- end sidebar minify button -->

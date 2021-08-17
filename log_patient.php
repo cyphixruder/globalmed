@@ -49,7 +49,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            //to verify password
             $dbpassword = $row['password'];
             if($dbpassword ==  md5($password)){
-                header("location: admin/index.php");
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['firstname'] = $row['firstname'];
+                $_SESSION['lastname'] = $row['lastname'];
+                header("location: master/landing.php");
             }else{
                 echo "<script>alert('Incorrect password')</script>";
                 header("location: patients-sign-in.php");

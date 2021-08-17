@@ -1,10 +1,15 @@
+<?php
+
+	session_start();
+
+?>
 <!-- begin #header -->
 <div id="header" class="header navbar navbar-default navbar-fixed-top">
 			<!-- begin container-fluid -->
 			<div class="container-fluid">
 				<!-- begin mobile sidebar expand / collapse button -->
 				<div class="navbar-header">
-					<a href="index.html" class="navbar-brand"><span class="navbar-logo"><i class="ion-ios-cloud"></i></span> <b>Color</b> Admin</a>
+					<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>GLOBAL</b>-MED</a>
 					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -85,9 +90,9 @@
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 							<span class="user-image online">
-								<img src="assets/img/user-13.jpg" alt="" /> 
+								<img src="assets/img/profile.jpg" alt="" /> 
 							</span>
-							<span class="hidden-xs">Adam Schwartz</span> <b class="caret"></b>
+							<span class="hidden-xs"><?php echo $_SESSION['firstname']; ?></span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu animated fadeInLeft">
 							<li class="arrow"></li>
@@ -96,7 +101,7 @@
 							<li><a href="javascript:;">Calendar</a></li>
 							<li><a href="javascript:;">Setting</a></li>
 							<li class="divider"></li>
-							<li><a href="javascript:;">Log Out</a></li>
+							<li><a href="../logout.php">Log Out</a></li>
 						</ul>
 					</li>
 				</ul>

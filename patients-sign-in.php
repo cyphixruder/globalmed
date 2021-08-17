@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +8,14 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/plus+.gif" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     
 	<!-- ===============================================================================================-->	
 	<link rel="icon" type="image/png" href="assets/images/icons/favicon.icon"/>
     <!--===============================================================================================-->
         <link rel="stylesheet" href="assets/bs css/bootstrap.css">
+        <link rel="stylesheet" href="master/.css">
     <!--===============================================================================================-->
         <link rel="stylesheet" href="assets/css/fontawesome-free-5.15.3-web/css/all.css">
     <!--===============================================================================================-->
@@ -24,6 +26,7 @@
         <link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
         <link rel="stylesheet" href="assets/css/patient-sign-in.css">
         <link rel="stylesheet" href="build/css/intlTelInput.css">
+        
         <!-- <link rel="stylesheet" href="build/css/demo.css"> -->
 <body>
     </section>
@@ -82,6 +85,7 @@
                     </div>
                 <a href="#">Forgot your password?</a>
                 <button type="submit" class="btn btn-primary">Sign In</button>
+                <a href="index.php"><p>&#x2190 Go back</p></a>
             </form>
         </div>
         <div class="overlay-container">
